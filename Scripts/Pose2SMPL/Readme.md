@@ -15,37 +15,15 @@ The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.c
 
 ## Setup
 
-### 1. (Obsolete) Install package
-**Attention: Do not install smplpytorch**. We have included the MODIFIED source code of this library in the project. 
-We modified Line 85 of smplpytorch from 
-```
-  if th_betas is None or bool(torch.norm(th_betas) == 0):
-```
-to 
-```
-if th_betas is None:
-```
-This avoids producing the all-zero shape parameters.
-
-* **Run without installing:** You will need to install the dependencies listed in [environment.yml](environment.yml):
+### 1. Install packages
+*  You will need to install the dependencies listed in [environment.yml](environment.yml):
   
   * `conda env update -f environment.yml` in an existing environment, or
-  * `conda env create -f environment.yml`, for a new `smplpytorch` environment
-* **Install:** To import `SMPL_Layer` in another project with `from smplpytorch.pytorch.smpl_layer import SMPL_Layer` do one of the following.
-  * Option 1: pip install. You can install `smplpytorch` from [PyPI](https://pypi.org/project/smplpytorch/). Additionally, you might need to install [chumpy](https://github.com/hassony2/chumpy.git).
-    ``` bash
-    pip install smplpytorch
-    ```
-  * Option 2: Download the source codes. This should automatically install the dependencies.
-    ``` bash
-    git clone https://github.com/gulvarol/smplpytorch.git
-    cd smplpytorch
-    pip install .
-    ```
+  * `conda env create -f environment.yml`, for a new environment
+
 ### 2. Download and setup the SMPL pickle files
   * Download the pickles files 
-    * Option 1: Download the models from [Dropbox](https://www.dropbox.com/scl/fo/2nlgomwnv3ar6igcipras/AKdXv04OZ1Z9MwP0DtJgbvQ?rlkey=948dezmme1qv23zj11e3utush&st=t17iojsh&dl=0).
-    * Option 2: Download the models from the [SMPL website](http://smpl.is.tue.mpg.de/) by choosing "SMPL for Python users". Note that you need to comply with the [SMPL model license](http://smpl.is.tue.mpg.de/license_model).
+    * Download the models from the [SMPL website](http://smpl.is.tue.mpg.de/) by choosing "SMPL for Python users". Note that you need to comply with the [SMPL model license](http://smpl.is.tue.mpg.de/license_model).
   * Extract and copy the `models` folder into the `smplpytorch/native/` folder (or set the `model_root` parameter accordingly).
 
 ### 3. Configure the directory
@@ -61,12 +39,8 @@ This avoids producing the all-zero shape parameters.
  
 calculate the velocity and save original data, SMPL paramter with velocity into .mat file
 ```
-python fit/tools/main_seq_as_batch_v2.py --dataset_name Kinect
+python fit/tools/main_seq_as_batch_v2.py
 ```
-
-The arg `--dataset_name Kinect` will guide to the config file `config/Kinect.json` in which the `file_path` of both source (Kinect) data and target data is set.
-
-The Kinect data shoud be `.mat` files that obtain from `.bag` files using preprocess scripts like `rosbag2mat.m`. See *Data_preprocess/rosbag2mat.m* for more information.
 
 ### Verify the SMPL parameters (shape and pose) can produce the smpl_verts using the following script.
 ```
