@@ -1,6 +1,10 @@
+## Change Log
+6-9-2025. Update the code. 
+
+
 ## Fitting SMPL Parameters by 3D-pose Key-points
 
-The repository provides a tool to fit **SMPL parameters** from **3D-pose** datasets that contain key-points of human body.
+The repository provides a tool to fit **SMPL parameters** from **Kinect_key** in Multi-Gait datasets.
 
 The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.com/gulvarol/smplpytorch) repository.
 
@@ -11,7 +15,18 @@ The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.c
 
 ## Setup
 
-### 1. Install  `smplpytorch` package
+### 1. (Obsolete) Install package
+**Attention: Do not install smplpytorch**. We have included the MODIFIED source code of this library in the project. 
+We modified Line 85 of smplpytorch from 
+```
+  if th_betas is None or bool(torch.norm(th_betas) == 0):
+```
+to 
+```
+if th_betas is None:
+```
+This avoids producing the all-zero shape parameters.
+
 * **Run without installing:** You will need to install the dependencies listed in [environment.yml](environment.yml):
   
   * `conda env update -f environment.yml` in an existing environment, or
