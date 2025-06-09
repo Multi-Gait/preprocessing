@@ -31,9 +31,9 @@ The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.c
     https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py#L106
 
   *  Edit [Kinect.json](fit/configs/Kinect.json) to configure PATH of the inputs (the .mat files without SMPL) and TARGET_PATH of the output (the .mat files that contain SMPL parameters)
-    https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py#L15
+    https://github.com/Multi-Gait/preprocessing/blob/8833ce1b0094e7e3be4dd2d67ea5909e30aa043a/Scripts/Pose2SMPL/fit/configs/Kinect.json#L15
 
-   https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py#L16
+https://github.com/Multi-Gait/preprocessing/blob/8833ce1b0094e7e3be4dd2d67ea5909e30aa043a/Scripts/Pose2SMPL/fit/configs/Kinect.json#L16
    
 ## Quick Start
 ### Convert Kinect Skeleton into SMPL Data
