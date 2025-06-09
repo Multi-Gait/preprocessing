@@ -1,0 +1,45 @@
+{
+    "MODEL": {
+        "GENDER": "neutral"
+    },
+    "TRAIN": {
+        "LEARNING_RATE": 5e-2,
+        "MAX_EPOCH": 300,
+        "WRITE": 10,
+        "OPTIMIZE_SCALE":1,
+        "OPTIMIZE_SHAPE":0
+    },
+    "USE_GPU": 1,
+    "DATASET": {
+        "NAME": "mdmGen",
+        "PATH": "/media/psy/LENOVO_USB_HDD/project/data_extension/LocalGait2Global/save/trainOnRuiliGait2/generated_gait_dongjiang_model000010000/results.mat",
+        "TARGET_PATH": "/media/psy/LENOVO_USB_HDD/project/data_extension/LocalGait2Global/save/trainOnRuiliGait2/generated_gait_dongjiang_model000010000/pose2smpl.mat",
+        "DATA_MAP":[
+            [0,0],
+            [1,1],
+            [2,2],
+            [3,3],
+            [4,4],
+            [5,5],
+            [6,6],
+            [7,7],
+            [8,8],
+            [9,9],
+            [10,10],
+            [11,11],
+            [12,12],
+            [13,13],
+            [14,14],
+            [15,15],
+            [16,16],
+            [17,17],
+            [18,18],
+            [19,19],
+            [20,20],
+            [21,21],
+            [22,22],
+            [23,23]
+        ]
+    },
+    "DEBUG": 0
+}

@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Aug 23 19:30:42 2024
+
+@author: Ruofeng Liu
+
+verfy that SMPL paramter can produce the valid verts through smpl_layer
+SMPL(shape, pose, trans) = verts 
+"""
+import os, platform
+import scipy
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from smplpytorch.pytorch.smpl_layer import SMPL_Layer
+from fit.tools.smpl_velocity   import augment_smpl_verts_with_velocity
+
+if platform.system() == 'Linux':
+    root_dir = "/home/lrf"
+else:
+    root_dir = "D:/"
+        
+smpl_mat_path = os.path.join(root_dir, "Dropbox/mmWave/data/activity/July25/SMPL/01");
+smpl_layer = SMPL_Layer(
+             center_idx=0,
+             gender='male',
+             model_root='smplpytorch/native/models')
+    
+for root, dirs, files in os.walk(smpl_mat_path):
+    if dirs != []:
+        continue
+    mat_files = os.listdir(root)
+    mat_files.sort()
+    
+    list_smpl_verts_mat, list_verts_model, list_Jtr_model, list_pc_xyz_key = [],[],[],[]
+    for file in mat_files:
+        file_path = os.path.join(root,file)
+        data  = scipy.io.loadmat(file_path)
+        shape_params = torch.from_numpy(data['shape_params'].astype(np.float32))        
+        pose_params  = torch.from_numpy(data['pose_params'].astype(np.float32))
+        smpl_verts = data['smpl_verts']
+        pc_xyz_key = data['pc_xyz_key'][:,0:3]
+        
+        with torch.no_grad():
+            verts_model, Jtr = smpl_layer(pose_params, th_betas=shape_params)
+        
+        Jtr = (Jtr.cpu().detach()).numpy().tolist()
+        verts_model = (verts_model.cpu().detach()).numpy().tolist()
+        
+        list_smpl_verts_mat.append(smpl_verts)
+        list_verts_model.append(verts_model[0])
+        list_Jtr_model.append(Jtr[0])
+        list_pc_xyz_key.append(pc_xyz_key)
+    smpl_verts_all, smpl_joints_all = augment_smpl_verts_with_velocity(list_verts_model, list_Jtr_model, list_pc_xyz_key)
+    
+    
+    for frameIdx in range(len(smpl_verts_all)):
+        # Create a figure with two subplots
+        fig = plt.figure(figsize=(12, 6))
+            
+        # First subplot for the first point cloud
+        ax1 = fig.add_subplot(121, projection='3d')
+        ax1.scatter(list_smpl_verts_mat[frameIdx][:, 0], list_smpl_verts_mat[frameIdx][:, 1], list_smpl_verts_mat[frameIdx][:, 2], c='r', marker='o')
+        ax1.set_title('Point Cloud 1')
+            
+        # Second subplot for the second point cloud
+        ax2 = fig.add_subplot(122, projection='3d')
+        ax2.scatter(smpl_verts_all[frameIdx][:, 0], smpl_verts_all[frameIdx][:, 1], smpl_verts_all[frameIdx][:, 2], c='b', marker='o')
+        ax2.set_title('Point Cloud 2')
+            
+        # Show the plot
+        plt.show()
+    break;

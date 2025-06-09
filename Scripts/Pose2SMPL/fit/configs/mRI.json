@@ -1,0 +1,22 @@
+{
+    "MODEL": {
+        "GENDER": "neutral"
+    },
+    "TRAIN": {
+        "LEARNING_RATE": 5e-2,
+        "MAX_EPOCH": 300,
+        "WRITE": 10,
+        "OPTIMIZE_SCALE":0,
+        "OPTIMIZE_SHAPE":0
+    },
+    "USE_GPU": 1,
+    "DATASET": {
+        "NAME": "mRI",
+        "PATH": "/media/psy/数据/data/mRI/dataset_release/aligned_data/pose_labels",
+        "TARGET_PATH": "",
+        "DATA_MAP":[
+            [0,18]
+        ]
+    },
+    "DEBUG": 0
+}

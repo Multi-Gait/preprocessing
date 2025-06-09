@@ -1,0 +1,22 @@
+{
+    "MODEL": {
+        "GENDER": "neutral"
+    },
+    "TRAIN": {
+        "LEARNING_RATE": 5e-2,
+        "MAX_EPOCH": 300,
+        "WRITE": 10,
+        "OPTIMIZE_SCALE":0,
+        "OPTIMIZE_SHAPE":0
+    },
+    "USE_GPU": 1,
+    "DATASET": {
+        "NAME": "HumanML3D",
+        "PATH": "/media/psy/Data/data/HumanML3D/HumanML3D/new_joints",
+        "TARGET_PATH": "/media/psy/Data/data/HumanML3D/HumanML3D/pose2smpl",
+        "DATA_MAP":[
+            [0,0]
+        ]
+    },
+    "DEBUG": 0
+}

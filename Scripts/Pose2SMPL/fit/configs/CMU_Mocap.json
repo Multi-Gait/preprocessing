@@ -1,0 +1,45 @@
+{
+    "MODEL": {
+        "GENDER": "neutral"
+    },
+    "TRAIN": {
+        "LEARNING_RATE": 5e-2,
+        "MAX_EPOCH": 1000,
+        "WRITE": 1,
+        "OPTIMIZE_SCALE":1,
+        "OPTIMIZE_SHAPE":1
+    },
+    "USE_GPU": 1,
+    "DATASET": {
+        "NAME": "CMU_Mocap",
+        "PATH": "/media/psy/Data/data/openSourceGaitData/CMU/extracted_original/mat",
+        "TARGET_PATH": "/media/psy/Data/data/openSourceGaitData/CMU/extracted_original/pose2smpl",
+        "DATA_MAP": [
+            [0, 0],
+            [1, 1],
+            [2, 6],
+            [3, 11],
+            [4, 2],
+            [5, 7],
+            [6, 12],
+            [7, 3],
+            [8, 8],
+            [9, 13],
+            [10, 4],
+            [11, 9],
+            [12, 15],
+            
+            [15, 16],
+            [16, 17],
+            [17, 24],
+            [18, 18],
+            [19, 25],
+            [20, 19],
+            [21, 26],
+            [22, 20],
+            [23, 27]
+
+        ]
+    },
+    "DEBUG": 0
+}

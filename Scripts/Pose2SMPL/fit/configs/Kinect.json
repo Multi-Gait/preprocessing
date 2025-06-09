@@ -1,0 +1,46 @@
+{
+    "MODEL": {
+        "GENDER": "male"
+    },
+    "TRAIN": {
+        "LEARNING_RATE": 5e-2,
+        "MAX_EPOCH": 1000,
+        "WRITE": 10,
+        "OPTIMIZE_SCALE":0,
+        "OPTIMIZE_SHAPE":1
+    },
+    "USE_GPU": 1,
+  "DATASET": {
+    "NAME": "Kinect",
+    "PATH": "/media/srl/T7/dataset_0818/mat11_224",
+    "TARGET_PATH": "/media/srl/T7/dataset_0818/smpl11_224",
+    "DATA_MAP_BACKUP": [
+      [ 0, 0 ]
+    ],
+    "DATA_MAP": [
+      [ 0, 0 ],
+      [ 1, 18 ],
+      [ 2, 22 ],
+
+      [ 4, 19 ],
+      [ 5, 23 ],
+
+      [ 7, 20 ],
+      [ 8, 24 ],
+
+      [ 10, 21 ],
+      [ 11, 25 ],
+      [ 12, 3 ],
+
+      [ 16, 5 ],
+      [ 17, 12 ],
+      [ 18, 6 ],
+      [ 19, 13 ],
+      [ 20, 7 ],
+      [ 21, 14 ]
+
+
+    ]
+  },
+    "DEBUG": 0
+}
