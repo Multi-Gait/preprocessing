@@ -45,7 +45,7 @@ def parse_args():
 
 
 def get_config(args):
-    config_path = '/home/srl/桌面/天顺师兄/02 Gait预处理代码/tools/Pose2SMPLv2/fit/configs/{}.json'.format(
+    config_path = 'Pose2SMPL/fit/configs/{}.json'.format(
         args.dataset_name)
     with open(config_path, 'r') as f:
         data = json.load(f)
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     smpl_layer = SMPL_Layer(
         center_idx=0,
         gender=cfg.MODEL.GENDER,
-        model_root='/home/srl/桌面/天顺师兄/02 Gait预处理代码/tools/Pose2SMPLv2/smplpytorch/native/models/')
+        model_root='/home/srl/Pose2SMPL/smplpytorch/native/models/')
     if args.dataset_name == 'Kinect':
         from orientationLoss import OrientationLoss
 
