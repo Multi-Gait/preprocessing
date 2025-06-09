@@ -58,7 +58,7 @@ def load(name, path):
     elif name == "HAA4D":
         return np.load(path, allow_pickle=True)
     elif name == 'Kinect':
-        arr = scipy.io.loadmat(path)['pc_xyz_key']
+        arr = scipy.io.loadmat(path)['kinect_key']
         # arr[0,:] = (arr[0,:]+arr[1,:])/2 # 调整0点位置，减少与SMPL差异
         arr[:,[1]] = - arr[:,[1]] # 绕竖直方向转180度
         arr[:,[0,1,2]] = arr[:,[0,2,1]] # 将y轴作为竖直方向
@@ -91,11 +91,11 @@ def load_seq_as_batch(name, dir, pattern=None):
                     continue
             # print(file_path)
             try:
-                arr = scipy.io.loadmat(file_path)['pc_xyz_key']
+                arr = scipy.io.loadmat(file_path)['kinect_key']
                 #arr = scipy.io.loadmat(file_path)['xyz_key']
             except:
                 f = h5py.File(file_path,'r')
-                arr = np.array(f.get('pc_xyz_key'))
+                arr = np.array(f.get('kinect_key'))
                 arr = arr.swapaxes(0,1)
             arr[0,:] = (arr[0,:]+arr[1,:])/2 # 调整0点位置，减少与SMPL差异
             arr[:,[1]] = - arr[:,[1]]
