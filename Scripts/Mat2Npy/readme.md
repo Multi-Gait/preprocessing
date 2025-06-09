@@ -21,11 +21,6 @@ https://github.com/Multi-Gait/preprocessing/blob/5358c504bf4500d941ef76ad2a03ef9
 This script iterates over the dataset and outputs the npy format dataset corresponding to the multimodal data
 
 ```
-python fit/tools/main_seq_as_batch_v2.py
-```
-
-### Verify the dataset root
-```
 python mat2npy.py
 ```
 
