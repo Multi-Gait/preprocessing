@@ -28,11 +28,11 @@ The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.c
 
 ### 3. Configure the directory
   *  Edit [main_seq_as_batch_v2.py](fit/tools/main_seq_as_batch_v2.py) to replace the SMPL pickle filepath with your local directory
-    https://github.com/liux4189/mmWave-human-sensing/blob/bbf8fb75231d56667318f4652be3487d2bedb16d/preprocessing/Pose2SMPLv2/fit/tools/main_seq_as_batch_v2.py#L106
+    [https://github.com/liux4189/mmWave-human-sensing/blob/bbf8fb75231d56667318f4652be3487d2bedb16d/preprocessing/Pose2SMPLv2/fit/tools/main_seq_as_batch_v2.py](https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py)#L106
 
   *  Edit [Kinect.json](fit/configs/Kinect.json) to configure PATH of the inputs (the .mat files without SMPL) and TARGET_PATH of the output (the .mat files that contain SMPL parameters)
-    https://github.com/liux4189/mmWave-human-sensing/blob/1d15980f333a90adce484bcc2da9186953587463/preprocessing/Pose2SMPLv2/fit/configs/Kinect.json#L15
-    https://github.com/liux4189/mmWave-human-sensing/blob/1d15980f333a90adce484bcc2da9186953587463/preprocessing/Pose2SMPLv2/fit/configs/Kinect.json#L16
+    [https://github.com/liux4189/mmWave-human-sensing/blob/1d15980f333a90adce484bcc2da9186953587463/preprocessing/Pose2SMPLv2/fit/configs/Kinect.json](https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py)#L15
+    [https://github.com/liux4189/mmWave-human-sensing/blob/1d15980f333a90adce484bcc2da9186953587463/preprocessing/Pose2SMPLv2/fit/configs/Kinect.json](https://github.com/Multi-Gait/preprocessing/blob/main/Scripts/Pose2SMPL/fit/tools/main_seq_as_batch_v2.py)#L16
    
 ## Quick Start
 ### Convert Kinect Skeleton into SMPL Data
