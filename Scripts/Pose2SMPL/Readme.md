@@ -18,8 +18,8 @@ The SMPL human body layer for Pytorch is from the [smplpytorch](https://github.c
 ### 1. Install packages
 *  You will need to install the dependencies listed in [environment.yml](environment.yml):
   
-  * `conda env update -f environment.yml` in an existing environment, or
-  * `conda env create -f environment.yml`, for a new environment
+    * `conda env update -f environment.yml` in an existing environment, or
+    * `conda env create -f environment.yml`, for a new environment
 
 ### 2. Download and setup the SMPL pickle files
   * Download the pickles files 
