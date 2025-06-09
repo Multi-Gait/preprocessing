@@ -2,7 +2,7 @@
 """
 Author：Multi-Gait_ruilishi
 
-日期：2025.06
+Date：2025.06
 
 input: mat frame files
 
