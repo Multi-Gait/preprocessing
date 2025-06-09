@@ -63,7 +63,7 @@ def unify_pc_ti(pc_xyziv_ti):
 
 ### configuration
 frames_per_sample = 20 # last N frame to keep in each sample
-rootdir = "/media/srl/T7/dataset_0818/smpl11_224"# please modify it to the root directory of dataset
+rootdir = "/media/srl/dataset"# please modify it to the root directory of dataset
 
 outdir = rootdir
 
